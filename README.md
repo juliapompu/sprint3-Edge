@@ -58,10 +58,10 @@ O sistema foi **montado fisicamente** e também **simulado no Wokwi**.
 ---
 
 ## 💾 Execução do Projeto
-Monte o circuito conforme o esquema elétrico;
-Faça o upload do código na placa usando a IDE;
-Pressione o botão para ver o sistema funcionar;
-Obeserve o efeito visual( Placa mostranod "GOLLL") e sonoro(buzzer tocando musiquinha) em tempo real.
+- Monte o circuito conforme o esquema elétrico;
+- Faça o upload do código na placa usando a IDE;
+- Pressione o botão para ver o sistema funcionar;
+- Obeserve o efeito visual( Placa mostranod "GOLLL") e sonoro(buzzer tocando musiquinha) em tempo real.
 
 ---
 
