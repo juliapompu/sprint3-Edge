@@ -29,11 +29,11 @@ O sistema foi **montado fisicamente** e também **simulado no Wokwi**.
 
 ### 🔗 Simulação no Wokwi
 
-[Acesse o projeto clicando aqui]()
+[Acesse o projeto clicando aqui](https://wokwi.com/projects/440580572991856641)
 
 ### 🖼️ Imagem da simulação no Wolkwi
 
-> [image]()
+> [image](<img width="882" height="576" alt="{1DB79AFB-D6DF-47F4-9C42-A2A4A9D8BDFD}" src="https://github.com/user-attachments/assets/12112a7a-48f8-4cbd-9217-780ddba609a0" />)
 
 ### 🎬 Vídeo Explicativo
 > [clique aqui para acessar o vídeo]()
