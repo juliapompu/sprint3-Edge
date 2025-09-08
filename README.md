@@ -1,6 +1,6 @@
 # sprint 3 Edge Computing- ElasNoJogo
 **Projeto- Challenge: ElasNoJogo- Site interativo que implementa e facilita o acesso e meninas ao futebol feminino.**
-  **Projeto: Um alerta de gols em partidas do time que escolher.**
+**Projeto: Um alerta de gols em partidas do time que escolher.**
 
 Este repositório contém o projeto desenvolvido para o challenge da disciplina *Edge Computing & Computer Systems* (FIAP - 2025). 
 
