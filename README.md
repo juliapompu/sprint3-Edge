@@ -12,6 +12,8 @@ O futebol feminino ainda recebe pouca atenção e visibilidade. Pensando nisso, 
 
 Este projeto, desenvolvido para a disciplina de *Edge Computing & Computer Systems*, tem como objetivo aprimorar as notificações de gols em aplicativos convencionais. Utilizando um monitor LCD 16x2 (I2C), um buzzer e uma placa ESP32, criamos um sistema de alertas que reproduz uma música sempre que um gol é marcado, além de exibir a informação na tela.
 
+---
+
 ### Funcionalidades implementadas:
 - Apresenta a mensagem "GOLLLL!" toda vez que é acionado o botão(usado para testar as notificações);
 - Toda vez que o gol acontece(apertam o botão) o buzzer é acionado com uma músiquinha;
