@@ -1,44 +1,99 @@
-#include <WiFi.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C LCD = LiquidCrystal_I2C(0x27, 16, 2);
+// Pinos no ESP32
+#define BUZZER_PIN   4   
+#define BTN_SELECT   5   
+#define BTN_CONFIRM  16 
+#define ledverde 12
+#define ledvermelho 2
 
-#define BUZZER_PIN  4   // pino do buzzer
-#define BUTTON_PIN  5   // pino do botão
+
+LiquidCrystal_I2C LCD(0x27, 16, 2);
+
+// Lista de times
+String times[] = {"Palmeiras", "Corinthians", "Santos", "Sao Paulo"};
+int totalTimes = 4;
+int timeAtual = 0;
+
+
+bool ultimoSelect = LOW;
+bool ultimoConfirm = LOW;
 
 void setup() {
   Serial.begin(115200);
 
+  // Inicializa I2C nos pinos SDA=21, SCL=22
+   Wire.begin(21, 22);
+
+  // Inicializa LCD
   LCD.init();
   LCD.backlight();
   LCD.setCursor(0, 0);
-  LCD.print("Esperando...");
-  
+  LCD.print("Escolha o time:");
+  LCD.setCursor(0, 1);
+  LCD.print(times[timeAtual]);
+
+  // Configura os pinos
   pinMode(BUZZER_PIN, OUTPUT);
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(BTN_SELECT, INPUT_PULLUP);
+  pinMode(BTN_CONFIRM, INPUT_PULLUP);
+  pinMode (ledverde, OUTPUT);
+  pinMode (ledvermelho, OUTPUT);
 }
 
 void loop() {
-  if (digitalRead(BUTTON_PIN) == LOW) { 
-    // Mostra mensagem na telinha
-    LCD.clear();
-    LCD.setCursor(0, 0);
-    LCD.print("GOOOL!!!");
-    LCD.setCursor(0, 1);
-    LCD.print("Futebol Feminino");
+  // Leitura dos botões
+  bool estadoSelect = digitalRead(BTN_SELECT);
+  bool estadoConfirm = digitalRead(BTN_CONFIRM);
 
-   
+  // --- Botão de Seleção ---
+  if (ultimoSelect == HIGH && estadoSelect == LOW) {
+    timeAtual++;
+    if (timeAtual >= totalTimes) timeAtual = 0;
+
+
+    LCD.setCursor(0, 0);
+    LCD.print("Escolha o time:");
+    LCD.setCursor(0, 1);
+    LCD.print(times[timeAtual]);
+
+    delay(300); // debounce
+  }
+  ultimoSelect = estadoSelect;
+
+  // --- Botão de Confirmação ---
+  if (ultimoConfirm == HIGH && estadoConfirm == LOW) {
+ 
+    LCD.setCursor(0, 0);
+    LCD.print("@ GOOOL!!!");
+    LCD.setCursor(0, 1);
+    LCD.print(times[timeAtual]);
+
+    // Buzzer toca 3 vezes
     for (int i = 0; i < 3; i++) {
       digitalWrite(BUZZER_PIN, HIGH);
       delay(300);
       digitalWrite(BUZZER_PIN, LOW);
-      delay(300);
+      delay(100);
+      digitalWrite(ledverde, HIGH);
+      digitalWrite(ledvermelho, HIGH);
+      delay(100);
+      digitalWrite(ledverde, LOW);
+      digitalWrite(ledvermelho, LOW);
+        
     }
 
     delay(2000);
-    LCD.clear();
+
+    // Volta para a tela inicial
+
     LCD.setCursor(0, 0);
-    LCD.print("Esperando...");
+    LCD.print("Escolha o time:");
+    LCD.setCursor(0, 1);
+    LCD.print(times[timeAtual]);
+
+    delay(300); // debounce
   }
+  ultimoConfirm = estadoConfirm;
 }
