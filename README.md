@@ -10,13 +10,13 @@ Este repositório contém o projeto desenvolvido para o challenge da disciplina 
 
 O futebol feminino ainda recebe pouca atenção e visibilidade. Pensando nisso, nosso site foi criado para facilitar o acesso a conteúdos relacionados ao futebol feminino e ajudar a combater o preconceito que muitas pessoas ainda têm em relação a esse esporte. Queremos tornar a vida das meninas que jogam futebol mais fácil, acessível e valorizada.
 
-Este projeto, desenvolvido para a disciplina de *Edge Computing & Computer Systems*, tem como objetivo aprimorar as notificações de gols em aplicativos convencionais. Utilizando um monitor LCD 16x2 (I2C), um buzzer e uma placa ESP32, criamos um sistema de alertas que reproduz uma música sempre que um gol é marcado, além de exibir a informação na tela.
+Este projeto, desenvolvido para a disciplina de *Edge Computing & Computer Systems*, tem como objetivo aprimorar as notificações de gols em aplicativos convencionais. Utilizando um monitor LCD 16x2 (I2C), um buzzer e dois leds e uma placa ESP32, criamos um sistema de alertas que reproduz um som sempre que um gol é marcado, além de exibir a informação na tela.
 
 ---
 
 ### Funcionalidades implementadas:
-- Apresenta a mensagem "GOLLLL!" toda vez que é acionado o botão(usado para testar as notificações);
-- Toda vez que o gol acontece(apertam o botão) o buzzer é acionado com uma músiquinha;
+- Apresenta a mensagem "GOLLLL!" com o time que escolheu toda vez que é acionado o botão(usado para testar as notificações);
+- Toda vez que o gol acontece(apertam o botão) o buzzer e os leds são acionados, fazendo um barulho e luzes piscando;
 
 
 ---
@@ -33,10 +33,10 @@ O sistema foi **montado fisicamente** e também **simulado no Wokwi**.
 
 ### 🖼️ Imagem da simulação no Wolkwi
 
-> [image](https://github.com/user-attachments/assets/12112a7a-48f8-4cbd-9217-780ddba609a0)
+> [image](https://github.com/user-attachments/assets/214813c8-ed25-4dfb-b6e2-e63122989c96)
 
 ### 🎬 Vídeo Explicativo
-> [clique aqui para acessar o vídeo]()
+> [clique aqui para acessar o vídeo](https://www.youtube.com/watch?v=s0NzDQGZD-8)
 
 
 ## 🔧 Componentes Utilizados
@@ -45,6 +45,7 @@ O sistema foi **montado fisicamente** e também **simulado no Wokwi**.
 - 1 × Buzzer;
 - 1 x Botão Simples
 - 1 × Protoboard;
+- 2 x LEDs;
 - Cabos Jumpers;
   
 ---
@@ -53,7 +54,8 @@ O sistema foi **montado fisicamente** e também **simulado no Wokwi**.
 - LCD16x2(I2C) conectado nas portas Esp22, Esp21, GND e no 3V3;
 - O Buzzre esta conectado na porta 4 do ESP32 e no negativo do protoboard;
 - o botão esta conectado na porta 5 do ESP32  e no negativo do protoboard;
-- O ESP32 está conectado com o GND e 5V no protoboard.
+- O ESP32 está conectado com o GND e 5V no protoboard;
+- Os LED conectados nas portas 12 e 16.
 
 ---
 
@@ -61,7 +63,7 @@ O sistema foi **montado fisicamente** e também **simulado no Wokwi**.
 - Monte o circuito conforme o esquema elétrico;
 - Faça o upload do código na placa usando a IDE;
 - Pressione o botão para ver o sistema funcionar;
-- Obeserve o efeito visual( Placa mostranod "GOLLL") e sonoro(buzzer tocando musiquinha) em tempo real.
+- Obeserve o efeito visual( Placa mostrando "GOLLL") e sonoro(buzzer tocando musiquinha) e visual(Leds acendendo) em tempo real.
 
 ---
 
